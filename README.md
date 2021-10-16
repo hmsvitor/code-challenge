@@ -15,7 +15,7 @@ Code challenge
 
 **Problem 04**  
 
-![image](https://user-images.githubusercontent.com/49028929/137604362-e96af65a-624d-436e-821b-54321b8b74a2.png)
+![image](https://user-images.githubusercontent.com/49028929/137604362-e96af65a-624d-436e-821b-54321b8b74a2.png)  
 *Got some problems on formatting that number
 
 **Problem 05**  
