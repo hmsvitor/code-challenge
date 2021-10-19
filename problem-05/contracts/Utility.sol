@@ -1,21 +1,24 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.3;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+interface ERC20Interface {
+    function balanceOf(address whom) view external returns (uint);
+}
 
 contract Utility {
     struct Balance {
         address token;
         uint balance;
     }
-    mapping (uint => Balance) public balances;
-
-    function getBalances( address wallet, address[] memory tokens) external view returns(string[] memory) {
-        for (uint i = 0; i < tokens.length; i++) {
-            IERC20 token = IERC20(tokens[i]);
-            balances[i] = Balance({
-                token: tokens[i], balance: token.balanceOf(holder)
-            });
+    Balance[] private _balances;
+    
+   function getBalances(address[] memory _tokenAddress, address _addressToQuery) public returns (Balance[] memory) {
+        for (uint i = 0; i < _tokenAddress.length; i++) {
+            Balance memory b;
+            b.token = _tokenAddress[i];
+            b.balance = ERC20Interface(_tokenAddress[i]).balanceOf(_addressToQuery);
+            _balances.push(b);
         }
+        return _balances;
     }
 }
